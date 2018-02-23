@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片小屋</title>
+	<link rel="stylesheet" href="mystyle.css" type="text/css">
+<script src="jquery-3.2.1.js"></script>
+<script>
+	var curIndex = 0;
+	var timer;
+	$(function(){
+		$(".xuanze>li").mouseenter(function(){
+			var idx = $(this).index();
+			$(".img>li").eq(idx).fadeIn().siblings().hide();
+			$(".xuanze>li").eq(idx).addClass("on").siblings().removeClass("on");
+			curIndex = idx+1;			
+		});
+		$(".xuanze>li").mouseleave(function(){
+			$(".xuanze>li").removeClass("on");
+		});
+		$(".imgpart").mouseenter(function(){
+			stop();
+		});
+		$(".imgpart").mouseleave(function(){
+			play();
+		});
+		function xunHuan(){	
+			if(curIndex == 3){
+				curIndex = 0;
+			}else{
+			$(".img>li").eq(curIndex).fadeIn().siblings().hide();
+			$(".xuanze>li").eq(curIndex).addClass("on").siblings().removeClass("on");
+			curIndex += 1;
+			}
+		}
+		function play(){
+			timer = setInterval(xunHuan,1000)};
+		function stop(){
+			clearInterval(timer);
+		}
+		play();
+	});
+	var newArr = [];
+	var a = Math.floor(Math.random()*10+1);
+	console.log(a);
+
+	for(i=0;i<a;i++){
+		newArr[i]=i;
+	}
+
+	console.log(newArr.length);
+	console.log(newArr[2]);
+</script>
+</head>
+<body>
+	<div class="headpart"><!-- head部分 -->
+		<nav>
+			<h3>天儿の图片小屋</h3>
+		</nav>
+	</div>
+	<div class="navpart container"><!-- 导航栏部分 -->
+		<ul>
+			<li><a href="#">热门图集</a></li>
+			<li><a href="#">最新图集</a></li>
+			<li><a href="#">图片专题</a></li>
+			<li><a href="#">留言页面</a></li>
+		</ul>
+	</div>
+	<div class="mainpart container clearfix">
+		<div class="imgpart" id="tupian">
+		<ul class="img">
+			<li><a href=""><img src="backimg/1.png" alt=""></a></li>
+			<li><a href=""><img src="backimg/2.png" alt=""></a></li>
+			<li><a href=""><img src="backimg/3.png" alt=""></a></li>
+		</ul>
+		<ul class="xuanze">
+			<li class="on"></li>
+			<li class=""></li>
+			<li class=""></li>
+		</ul>
+		</div>
+		<ul class="news">
+			<li><a href="#">mokaffe新图大放送</a></li>
+			<li><a href="#">魔幻人设组图，挑起你的灵感</a></li>
+			<li><a href="#">黑暗之魂3同人合集组图</a></li>
+			<li><a href="#">女神异闻录5游戏原画图</a></li>
+			<li><a href="#">超级马里奥游戏截图</a></li>
+			<li><a href="#">英雄联盟角色原画图</a></li>
+		</ul>
+	</div><!-- 导航栏部分结束 -->
+	<div class="jianshang container clearfix"><!-- 图片鉴赏模块 -->
+		<div class="jshead clearfix">
+			<nav>图片鉴赏</nav>
+			<a href="">查看全部</a>
+		</div>
+		<div>
+			<ul>
+				<li><a href="#"><img src="tupian/01.png" alt=""></a><nav>作品编号 a1b2-0001</nav><nav>作者：mokaffe</nav></li>
+				<li><a href="#"><img src="tupian/02.png" alt=""></a><nav>作品编号 a5b6-0002</nav><nav>作者：mokaffe</nav></li>
+				<li><a href="#"><img src="tupian/03.png" alt=""></a><nav>作品编号 d1b6-0003</nav><nav>作者：Q2</nav></li>
+				<li><a href="#"><img src="tupian/04.png" alt=""></a><nav>作品编号 f1d7-0004</nav><nav>作者：Q2</nav></li>
+				<li><a href="#"><img src="tupian/05.png" alt=""></a><nav>作品编号 o7b8-0001</nav><nav>作者：副岛成记</nav></li>
+				<li><a href="#"><img src="tupian/06.png" alt=""></a><nav>作品编号 a2b6-0002</nav><nav>作者：副岛成记</nav></li>
+				<li><a href="#"><img src="tupian/07.png" alt=""></a><nav>作品编号 c1b9-0003</nav><nav>作者：青沼英二</nav></li>
+				<li><a href="#"><img src="tupian/08.png" alt=""></a><nav>作品编号 d2b2-0004</nav><nav>作者：青沼英二</nav></li>
+				<li><a href="#"><img src="tupian/09.png" alt=""></a><nav>作品编号 f1y9-0007</nav><nav>作者：野村哲也</nav></li>
+				<li><a href="#"><img src="tupian/10.png" alt=""></a><nav>作品编号 k1b9-0009</nav><nav>作者：野村哲也</nav></li>
+			</ul>
+		</div>
+	</div> <!-- 图片鉴赏模块到此结束 -->
+	<div class="bottompart"><!-- 底部模块的制作 -->
+		<ul>
+			<li><h3>关于本站</h3></li>
+			<li><a href="#">图片指南</a></li>
+			<li><a href="#">隐私政策</a></li>
+			<li><a href="#">刊登广告</a></li>
+		</ul>
+		<ul>
+			<li><h3>公告</h3></li>
+			<li><a href="#">Twiiter</a></li>
+			<li><a href="#">Facebook</a></li>
+			<li><a href="#">Pixiv</a></li>
+		</ul>
+		<ul>
+			<li><h3>关注天儿</h3></li>
+			<li><a href="#">手机：15861802801</a></li>
+			<li><a href="#">邮箱：740518644@qq.com</a></li>
+			<li><a href="#">微信：tianer15861802801</a></li>
+		</ul>
+	</div><!-- 底部模块到此结束 -->
+</body>
+</html>
